@@ -24,6 +24,8 @@
 @property (nonatomic, assign) NSUInteger steps;
 @property (nonatomic, assign) CGPoint centerPoint;
 @property (nonatomic, strong) UIColor *backgroundFillColor;
+@property (nonatomic, strong) UIColor *attributeTextColor;
+@property (nonatomic, strong) UIColor *horizontalLineColorRadial;
 
 - (void)setTitles:(NSArray *)titles;
 - (void)setColors:(NSArray *)colors;

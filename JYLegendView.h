@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSArray *titles;
 @property (nonatomic, strong) NSMutableArray *colors;
+-(NSArray *)colorsWithOpacity:(CGFloat)opacity;
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
 #define JY_TEXT_SIZE(text, font) [text length] > 0 ? [text sizeWithAttributes : @{ NSFontAttributeName : font }] : CGSizeZero;
