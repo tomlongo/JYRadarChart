@@ -45,12 +45,12 @@
     }
     
     NSMutableArray *buttonsMutable = [[NSMutableArray alloc] init];
-    CGFloat radPerV = M_PI * 2 / _numOfV;
+    CGFloat radPerV = M_PI * 2 / [_attributes count];
     
     //draw attribute text
     CGFloat height = [self.scaleFont lineHeight] + 10;
     CGFloat padding = 2.0;
-    for (int i = 0; i < _numOfV; i++) {
+    for (int i = 0; i < [_attributes count]; i++) {
         
         NSString *attributeName = _attributes[i];
         CGPoint pointOnEdge = CGPointMake(_centerPoint.x - _r * sin(i * radPerV), _centerPoint.y - _r * cos(i * radPerV));
