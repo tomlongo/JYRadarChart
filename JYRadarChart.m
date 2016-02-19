@@ -27,6 +27,89 @@
 @synthesize attributeTextColor = _attributeTextColor,
             horizontalLineColorRadial = _horizontalLineColorRadial;
 
+-(void)setAttributes:(NSArray *)attributes {
+    if(attributes != _attributes) {
+        _attributes = attributes;
+        [self reloadAttributeButtons];
+    }
+}
+
+-(void)selectedAttributeButton:(id)button {
+
+}
+
+-(void)reloadAttributeButtons {
+    
+    for (UIButton *button in _attributeButtons) {
+        [button removeFromSuperview];
+    }
+    
+    NSMutableArray *buttonsMutable = [[NSMutableArray alloc] init];
+    CGFloat radPerV = M_PI * 2 / _numOfV;
+    
+    //draw attribute text
+    CGFloat height = [self.scaleFont lineHeight] + 10;
+    CGFloat padding = 2.0;
+    for (int i = 0; i < _numOfV; i++) {
+        
+        NSString *attributeName = _attributes[i];
+        CGPoint pointOnEdge = CGPointMake(_centerPoint.x - _r * sin(i * radPerV), _centerPoint.y - _r * cos(i * radPerV));
+        
+        CGSize attributeTextSize = JY_TEXT_SIZE(attributeName, self.scaleFont);
+        attributeTextSize.width += 20;
+        NSInteger width = attributeTextSize.width;
+        
+        CGFloat xOffset = pointOnEdge.x >= _centerPoint.x ? width / 2.0 + padding : -width / 2.0 - padding;
+        CGFloat yOffset = pointOnEdge.y >= _centerPoint.y ? height / 2.0 + padding : -height / 2.0 - padding;
+        CGPoint legendCenter = CGPointMake(pointOnEdge.x + xOffset, pointOnEdge.y + yOffset);
+        
+        UIButton *button = [[UIButton alloc] init];
+        [button setTitle:attributeName forState:UIControlStateNormal];
+        [button setTitleColor:self.attributeTextColor forState:UIControlStateNormal];
+        button.titleLabel.font = self.scaleFont;
+        button.titleLabel.font = [button.titleLabel.font fontWithSize:12];
+
+        
+        if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 70000) {
+            NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+            [paragraphStyle setLineBreakMode:NSLineBreakByClipping];
+            [paragraphStyle setAlignment:NSTextAlignmentCenter];
+
+            CGRect frame = CGRectMake(legendCenter.x - width / 2.0,
+                                      legendCenter.y - height / 2.0,
+                                      width,
+                                      height);
+            
+            
+            [button setFrame:frame];
+            
+            
+        }
+        else {
+            
+            CGRect frame = CGRectMake(legendCenter.x - width / 2.0,
+                                      legendCenter.y - height / 2.0,
+                                      width,
+                                      height);
+            
+            [button setFrame:frame];
+            
+        }
+        
+        [button addTarget:self action:@selector(selectedAttributeButton:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [buttonsMutable addObject:button];
+        
+    }
+    
+    [self setAttributeButtons:buttonsMutable];
+    
+    for (UIButton *button in _attributeButtons) {
+        [self addSubview:button];
+    }
+    
+}
+
 -(UIColor *)attributeTextColor {
     if(!_attributeTextColor) {
         _attributeTextColor = [UIColor blackColor];
@@ -159,44 +242,44 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     //draw attribute text
-    CGFloat height = [self.scaleFont lineHeight];
-    CGFloat padding = 2.0;
-    for (int i = 0; i < _numOfV; i++) {
-        NSString *attributeName = _attributes[i];
-        CGPoint pointOnEdge = CGPointMake(_centerPoint.x - _r * sin(i * radPerV), _centerPoint.y - _r * cos(i * radPerV));
-        
-        CGSize attributeTextSize = JY_TEXT_SIZE(attributeName, self.scaleFont);
-        NSInteger width = attributeTextSize.width;
-        
-        CGFloat xOffset = pointOnEdge.x >= _centerPoint.x ? width / 2.0 + padding : -width / 2.0 - padding;
-        CGFloat yOffset = pointOnEdge.y >= _centerPoint.y ? height / 2.0 + padding : -height / 2.0 - padding;
-        CGPoint legendCenter = CGPointMake(pointOnEdge.x + xOffset, pointOnEdge.y + yOffset);
-        
-        if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 70000) {
-            NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-            [paragraphStyle setLineBreakMode:NSLineBreakByClipping];
-            [paragraphStyle setAlignment:NSTextAlignmentCenter];
-            
-            NSDictionary *attributes = @{ NSFontAttributeName: self.scaleFont,
-                                          NSParagraphStyleAttributeName: paragraphStyle,
-                                          NSForegroundColorAttributeName: self.attributeTextColor};
-            
-            [attributeName drawInRect:CGRectMake(legendCenter.x - width / 2.0,
-                                                 legendCenter.y - height / 2.0,
-                                                 width,
-                                                 height)
-                       withAttributes:attributes];
-        }
-        else {
-            [attributeName drawInRect:CGRectMake(legendCenter.x - width / 2.0,
-                                                 legendCenter.y - height / 2.0,
-                                                 width,
-                                                 height)
-                             withFont:self.scaleFont
-                        lineBreakMode:NSLineBreakByClipping
-                            alignment:NSTextAlignmentCenter];
-        }
-    }
+//    CGFloat height = [self.scaleFont lineHeight];
+//    CGFloat padding = 2.0;
+//    for (int i = 0; i < _numOfV; i++) {
+//        NSString *attributeName = _attributes[i];
+//        CGPoint pointOnEdge = CGPointMake(_centerPoint.x - _r * sin(i * radPerV), _centerPoint.y - _r * cos(i * radPerV));
+//        
+//        CGSize attributeTextSize = JY_TEXT_SIZE(attributeName, self.scaleFont);
+//        NSInteger width = attributeTextSize.width;
+//        
+//        CGFloat xOffset = pointOnEdge.x >= _centerPoint.x ? width / 2.0 + padding : -width / 2.0 - padding;
+//        CGFloat yOffset = pointOnEdge.y >= _centerPoint.y ? height / 2.0 + padding : -height / 2.0 - padding;
+//        CGPoint legendCenter = CGPointMake(pointOnEdge.x + xOffset, pointOnEdge.y + yOffset);
+//        
+//        if (__IPHONE_OS_VERSION_MIN_REQUIRED >= 70000) {
+//            NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+//            [paragraphStyle setLineBreakMode:NSLineBreakByClipping];
+//            [paragraphStyle setAlignment:NSTextAlignmentCenter];
+//            
+//            NSDictionary *attributes = @{ NSFontAttributeName: self.scaleFont,
+//                                          NSParagraphStyleAttributeName: paragraphStyle,
+//                                          NSForegroundColorAttributeName: self.attributeTextColor};
+//            
+//            [attributeName drawInRect:CGRectMake(legendCenter.x - width / 2.0,
+//                                                 legendCenter.y - height / 2.0,
+//                                                 width,
+//                                                 height)
+//                       withAttributes:attributes];
+//        }
+//        else {
+//            [attributeName drawInRect:CGRectMake(legendCenter.x - width / 2.0,
+//                                                 legendCenter.y - height / 2.0,
+//                                                 width,
+//                                                 height)
+//                             withFont:self.scaleFont
+//                        lineBreakMode:NSLineBreakByClipping
+//                            alignment:NSTextAlignmentCenter];
+//        }
+//    }
     
     //draw background fill color
     [_backgroundFillColor setFill];

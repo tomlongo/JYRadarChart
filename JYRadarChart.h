@@ -26,6 +26,7 @@
 @property (nonatomic, strong) UIColor *backgroundFillColor;
 @property (nonatomic, strong) UIColor *attributeTextColor;
 @property (nonatomic, strong) UIColor *horizontalLineColorRadial;
+@property (nonatomic, strong) NSArray *attributeButtons;
 
 - (void)setTitles:(NSArray *)titles;
 - (void)setColors:(NSArray *)colors;
