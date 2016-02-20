@@ -8,6 +8,7 @@
 
 #import "JYRadarChart.h"
 #import "JYLegendView.h"
+#import "JYAttributeButton.h"
 
 #define PADDING 13
 #define LEGEND_PADDING 3
@@ -40,7 +41,7 @@
 
 -(void)reloadAttributeButtons {
     
-    for (UIButton *button in _attributeButtons) {
+    for (JYAttributeButton *button in _attributeButtons) {
         [button removeFromSuperview];
     }
     
@@ -63,9 +64,14 @@
         CGFloat yOffset = pointOnEdge.y >= _centerPoint.y ? height / 2.0 + padding : -height / 2.0 - padding;
         CGPoint legendCenter = CGPointMake(pointOnEdge.x + xOffset, pointOnEdge.y + yOffset);
         
-        UIButton *button = [[UIButton alloc] init];
+        JYAttributeButton *button = [[JYAttributeButton alloc] init];
         [button setTitle:attributeName forState:UIControlStateNormal];
         [button setTitleColor:self.attributeTextColor forState:UIControlStateNormal];
+        
+        UIImage *image = [[UIImage imageNamed:@"IconPlus"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [button setImage:image forState:UIControlStateNormal];        
+        [button.imageView setTintColor:self.attributeTextColor];
+        
         button.titleLabel.font = self.scaleFont;
         button.titleLabel.font = [button.titleLabel.font fontWithSize:12];
 
@@ -104,7 +110,7 @@
     
     [self setAttributeButtons:buttonsMutable];
     
-    for (UIButton *button in _attributeButtons) {
+    for (JYAttributeButton *button in _attributeButtons) {
         [self addSubview:button];
     }
     

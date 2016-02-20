@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C0F97901C79324A008EDCE6 /* JYAttributeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0F978F1C79324A008EDCE6 /* JYAttributeButton.m */; };
 		A46480E11822B03600FC04A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46480E01822B03600FC04A7 /* Foundation.framework */; };
 		A46480E31822B03600FC04A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46480E21822B03600FC04A7 /* CoreGraphics.framework */; };
 		A46480E51822B03600FC04A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46480E41822B03600FC04A7 /* UIKit.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C0F978E1C79324A008EDCE6 /* JYAttributeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYAttributeButton.h; sourceTree = "<group>"; };
+		6C0F978F1C79324A008EDCE6 /* JYAttributeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYAttributeButton.m; sourceTree = "<group>"; };
 		A46480DD1822B03600FC04A7 /* JYRadarChartDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JYRadarChartDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46480E01822B03600FC04A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A46480E21822B03600FC04A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				A464812C18238F6800FC04A7 /* JYLegendView.m */,
 				A464812D18238F6800FC04A7 /* JYRadarChart.h */,
 				A464812E18238F6800FC04A7 /* JYRadarChart.m */,
+				6C0F978E1C79324A008EDCE6 /* JYAttributeButton.h */,
+				6C0F978F1C79324A008EDCE6 /* JYAttributeButton.m */,
 			);
 			name = JYRadarChart;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A464813018238F6800FC04A7 /* JYRadarChart.m in Sources */,
+				6C0F97901C79324A008EDCE6 /* JYAttributeButton.m in Sources */,
 				A46480FA1822B03600FC04A7 /* ViewController.m in Sources */,
 				A46480F11822B03600FC04A7 /* AppDelegate.m in Sources */,
 				A464812F18238F6800FC04A7 /* JYLegendView.m in Sources */,
