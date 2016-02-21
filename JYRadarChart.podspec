@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author       = { "Johnny Wu" => "johnny.wjy07@gmail.com" }
   s.platform     = :ios, '5.0'
   s.source       = { :git => "https://github.com/johnnywjy/JYRadarChart.git", :tag => s.version.to_s }
-  s.source_files = '*.{h,m}'
+  s.source_files = '*.{h,m,png}'
   s.framework    = 'CoreGraphics'
   s.requires_arc = true
 end

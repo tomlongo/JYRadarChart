@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6C0F97931C793616008EDCE6 /* JYAttributeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0F97921C793616008EDCE6 /* JYAttributeButton.m */; };
+		6CA32DCE1C793785000C95C5 /* IconPlus.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CA32DCC1C793785000C95C5 /* IconPlus.png */; };
+		6CA32DCF1C793785000C95C5 /* IconPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CA32DCD1C793785000C95C5 /* IconPlus@2x.png */; };
 		A46480E11822B03600FC04A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46480E01822B03600FC04A7 /* Foundation.framework */; };
 		A46480E31822B03600FC04A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46480E21822B03600FC04A7 /* CoreGraphics.framework */; };
 		A46480E51822B03600FC04A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A46480E41822B03600FC04A7 /* UIKit.framework */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		6C0F97911C793616008EDCE6 /* JYAttributeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYAttributeButton.h; sourceTree = SOURCE_ROOT; };
 		6C0F97921C793616008EDCE6 /* JYAttributeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYAttributeButton.m; sourceTree = SOURCE_ROOT; };
+		6CA32DCC1C793785000C95C5 /* IconPlus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconPlus.png; sourceTree = SOURCE_ROOT; };
+		6CA32DCD1C793785000C95C5 /* IconPlus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IconPlus@2x.png"; sourceTree = SOURCE_ROOT; };
 		A46480DD1822B03600FC04A7 /* JYRadarChartDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JYRadarChartDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A46480E01822B03600FC04A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A46480E21822B03600FC04A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,6 +148,8 @@
 		A464812A1822B71B00FC04A7 /* JYRadarChart */ = {
 			isa = PBXGroup;
 			children = (
+				6CA32DCC1C793785000C95C5 /* IconPlus.png */,
+				6CA32DCD1C793785000C95C5 /* IconPlus@2x.png */,
 				6C0F97911C793616008EDCE6 /* JYAttributeButton.h */,
 				6C0F97921C793616008EDCE6 /* JYAttributeButton.m */,
 				A464812B18238F6800FC04A7 /* JYLegendView.h */,
@@ -231,9 +237,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A46480F71822B03600FC04A7 /* Main_iPad.storyboard in Resources */,
+				6CA32DCF1C793785000C95C5 /* IconPlus@2x.png in Resources */,
 				A46480FC1822B03600FC04A7 /* Images.xcassets in Resources */,
 				A46480F41822B03600FC04A7 /* Main_iPhone.storyboard in Resources */,
 				A46480EB1822B03600FC04A7 /* InfoPlist.strings in Resources */,
+				6CA32DCE1C793785000C95C5 /* IconPlus.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
