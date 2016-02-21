@@ -60,8 +60,8 @@
         attributeTextSize.width += 20;
         NSInteger width = attributeTextSize.width;
         
-        CGFloat xOffset = pointOnEdge.x >= _centerPoint.x ? width / 2.0 + padding : -width / 2.0 - padding;
-        CGFloat yOffset = pointOnEdge.y >= _centerPoint.y ? height / 2.0 + padding : -height / 2.0 - padding;
+        CGFloat xOffset = pointOnEdge.x >= _centerPoint.x ? width / 2.0 + padding - 5: -width / 2.0 - padding + 5;
+        CGFloat yOffset = pointOnEdge.y >= _centerPoint.y ? height / 2.0 + padding - 10 : -height / 2.0 - padding + 10;
         CGPoint legendCenter = CGPointMake(pointOnEdge.x + xOffset, pointOnEdge.y + yOffset);
         
         JYAttributeButton *button = [[JYAttributeButton alloc] init];
