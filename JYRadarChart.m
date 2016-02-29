@@ -28,6 +28,13 @@
 @synthesize attributeTextColor = _attributeTextColor,
             horizontalLineColorRadial = _horizontalLineColorRadial;
 
+-(UIImage *)imageForAttributeAtIndex:(NSUInteger)index {
+    if(index >= [self.attributeImages count]) {
+        return [[UIImage imageNamed:@"IconPlus"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    }
+    return [self.attributeImages objectAtIndex:index];
+}
+
 -(void)setAttributes:(NSArray *)attributes {
     if(attributes != _attributes) {
         _attributes = attributes;
@@ -68,7 +75,7 @@
         [button setTitle:attributeName forState:UIControlStateNormal];
         [button setTitleColor:self.attributeTextColor forState:UIControlStateNormal];
         
-        UIImage *image = [[UIImage imageNamed:@"IconPlus"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        UIImage *image = [self imageForAttributeAtIndex:i];
         [button setImage:image forState:UIControlStateNormal];        
         [button.imageView setTintColor:self.attributeTextColor];
         

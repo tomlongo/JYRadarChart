@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIColor *backgroundLineColorRadial;
 @property (nonatomic, strong) NSArray *dataSeries;
 @property (nonatomic, strong) NSArray *attributes;
+@property (nonatomic, strong) NSArray *attributeImages;
 @property (nonatomic, assign) NSUInteger steps;
 @property (nonatomic, assign) CGPoint centerPoint;
 @property (nonatomic, strong) UIColor *backgroundFillColor;
