@@ -12,7 +12,7 @@
 
 #define PADDING 13
 #define LEGEND_PADDING 3
-#define ATTRIBUTE_TEXT_SIZE 10
+#define ATTRIBUTE_TEXT_SIZE 12
 #define COLOR_HUE_STEP 5
 #define MAX_NUM_OF_COLOR 17
 
@@ -56,7 +56,7 @@
     CGFloat radPerV = M_PI * 2 / [_attributes count];
     
     //draw attribute text
-    CGFloat height = [self.scaleFont lineHeight] + 10;
+    CGFloat height = [self.scaleFont lineHeight] + 26;
     CGFloat padding = 2.0;
     for (int i = 0; i < [_attributes count]; i++) {
         

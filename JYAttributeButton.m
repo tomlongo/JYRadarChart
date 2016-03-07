@@ -8,7 +8,7 @@
 
 #import "JYAttributeButton.h"
 
-CGFloat const JYToolButtonImageSize = 10.f;
+CGFloat const JYToolButtonImageSize = 20.f;
 
 @implementation JYAttributeButton
 
