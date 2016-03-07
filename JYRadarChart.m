@@ -67,8 +67,15 @@
         attributeTextSize.width += 20;
         NSInteger width = attributeTextSize.width;
         
-        CGFloat xOffset = pointOnEdge.x >= _centerPoint.x ? width / 2.0 + padding - 5: -width / 2.0 - padding + 5;
-        CGFloat yOffset = pointOnEdge.y >= _centerPoint.y ? height / 2.0 + padding - 10 : -height / 2.0 - padding + 10;
+//        CGFloat xOffset = pointOnEdge.x >= _centerPoint.x ? width / 2.0 + padding - 5: -width / 2.0 - padding + 5;
+//        CGFloat yOffset = pointOnEdge.y >= _centerPoint.y ? height / 2.0 + padding - 10 : -height / 2.0 - padding + 10;
+        
+        CGFloat xOffset = (pointOnEdge.x >= _centerPoint.x) ? 22 : -22;
+        CGFloat yOffset = (pointOnEdge.y >= _centerPoint.y) ? 22 : -22;
+        
+        if(round(pointOnEdge.x) == round(_centerPoint.x)) xOffset = 0;
+        if(round(pointOnEdge.y) == round(_centerPoint.y)) yOffset = 0;
+
         CGPoint legendCenter = CGPointMake(pointOnEdge.x + xOffset, pointOnEdge.y + yOffset);
         
         JYAttributeButton *button = [[JYAttributeButton alloc] init];
@@ -92,7 +99,11 @@
                                       legendCenter.y - height / 2.0,
                                       width,
                                       height);
-            
+
+            if(self.superview) {
+                frame.origin.x += self.frame.origin.x;
+                frame.origin.y += self.frame.origin.y;
+            }
             
             [button setFrame:frame];
             
@@ -104,6 +115,11 @@
                                       legendCenter.y - height / 2.0,
                                       width,
                                       height);
+            
+            if(self.superview) {
+                frame.origin.x += self.frame.origin.x;
+                frame.origin.y += self.frame.origin.y;
+            }
             
             [button setFrame:frame];
             
@@ -118,6 +134,15 @@
     [self setAttributeButtons:buttonsMutable];
     
     for (JYAttributeButton *button in _attributeButtons) {
+        [self addAttributeButtonToView:button];
+    }
+    
+}
+
+-(void)addAttributeButtonToView:(JYAttributeButton *)button {
+    if(self.superview) {
+        [self.superview addSubview:button];
+    } else {
         [self addSubview:button];
     }
     
